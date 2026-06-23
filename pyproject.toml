@@ -1,0 +1,61 @@
+[project]
+name = "fakelab_menucommands"
+description = "Menu command constants for fakelab"
+keywords = ["vfb", "fonttools"]
+version = "1.0.0"
+
+readme = "README.md"
+license = "GPL-3.0-or-later"
+
+authors = [{name = "Jens Kutílek", email = "webmail@kutilek.de"}]
+classifiers = [
+    "Environment :: Console",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+]
+
+requires-python = ">=3.12"
+
+[dependency-groups]
+dev = [
+    "flake8 >= 7.3.0",
+    "mypy >= 2.1.0",
+    "ruff >= 0.15.17",
+]
+test = [
+    { include-group = "dev"},
+    "pytest >= 9.1.0",
+    "pytest-cov >= 7.1.0",
+    "tox >= 4.55.1",
+    "tox-gh >= 1.7.1",
+    "tox-uv >= 1.35.2",
+]
+
+
+[project.urls]
+"Homepage" = "https://github.com/jenskutilek/fakelab_menucommands"
+# "Documentation" = "https://fakelab.readthedocs.io/"
+"Bug Tracker" = "https://github.com/jenskutilek/fakelab_menucommands/issues"
+"Changelog" = "https://github.com/jenskutilek/fakelab_menucommands/blob/main/CHANGELOG.md"
+
+
+[build-system]
+requires = ["uv_build>=0.11.21,<0.12"]
+build-backend = "uv_build"
+
+
+[tool.coverage.paths]
+source = ["src", ".tox/py*/**/site-packages"]
+
+
+[tool.ruff.lint.isort]
+known-first-party = ["fl_cmd"]
+
+
+[tool.uv.build-backend]
+module-name = "fl_cmd"
+# module-root = "src"
